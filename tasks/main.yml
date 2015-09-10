@@ -14,4 +14,6 @@
 
 - include: ssh_keys.yml
 
+- include: default_ssh_key.yml
+
 - include: sudo.yml

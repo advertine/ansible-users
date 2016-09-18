@@ -12,8 +12,16 @@
 
 - include: remove_groups.yml
 
-- include: ssh_keys.yml
-
 - include: default_ssh_key.yml
+
+- include: additional_ssh_keys.yml
+  with_items: "{{ users }}"
+  when: >
+    user_item.install_additional_ssh_keys is defined and
+    user_item.install_additional_ssh_keys == true
+  loop_control:
+    loop_var: user_item
+
+- include: ssh_keys.yml
 
 - include: sudo.yml

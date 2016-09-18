@@ -1,0 +1,6 @@
+---
+- name: install additional SSH key
+  authorized_key: >
+    user="{{ user_item.name }}"
+    key="{{ item }}"
+  with_items: "{{ lookup('file', users_additional_ssh_keys_dir + '/id_rsa_' + user_item.name + '.pub').split('\n') }}"

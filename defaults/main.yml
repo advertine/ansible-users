@@ -24,3 +24,4 @@ users_ssh_keys: []
 
 users_install_default_ssh_key: true
 users_ssh_keys_dir: "{{playbook_dir}}/../ssh_keys"
+users_additional_ssh_keys_dir: "{{playbook_dir}}/../ssh_keys/additional"

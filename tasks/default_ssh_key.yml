@@ -3,6 +3,5 @@
   authorized_key: >
     user='{{ item.name }}'
     key="{{ lookup('file', users_ssh_keys_dir + '/id_rsa_' + item.name + '.pub')  }}"
-  with_items: users
+  with_items: "{{ users }}"
   when: users_install_default_ssh_key == true
-

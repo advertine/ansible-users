@@ -3,14 +3,14 @@
   group:
     name: "{{ item.name }}"
     state: absent
-  with_items: users_groups
+  with_items: "{{ users_groups }}"
   when: item.state|default('present') == "absent"
 
 - name: Remove per-user groups
   group:
     name: "{{ item.name }}"
     state: absent
-  with_items: users
+  with_items: "{{ users }}"
   when: >
     users_per_user_groups == true and
     item.state|default('present') == 'absent' and
